@@ -1,0 +1,19 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 66px;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    font-family: Arial-BoldMT, Arial;
+    color: #FFFFFF;
+    line-height: 18px;
+
+    li {
+      margin-left: 80px;
+    }
+  }
+}

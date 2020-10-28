@@ -1,0 +1,123 @@
+.w1200 {
+  margin: 0 auto;
+  width: 1200px;
+}
+.main {
+  position: relative;
+  font-family: Arial-Black;
+
+  .header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+  }
+  
+  .banner {
+    overflow: hidden;
+    min-width: 1200px;
+  
+    img {
+      width: 100%;
+    }
+  }
+  
+  .university_cooperation {
+    .content {
+      h6 {
+        font-family: Arial-Black;
+        margin: 90px 0 32px;
+        font-size: 50px;
+        font-weight: 900;
+        color: #08237C;
+        line-height: 60px;
+        text-align: center;
+      }
+  
+      .swiper_box {
+        height: 650px;    
+        margin-bottom: 90px;
+
+        .item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          
+          .img {
+            margin-bottom: 58px;
+            width: 550px;
+          }
+    
+          .text {
+            p {
+              margin: 20px 0 40px;
+              font-size: 31px;
+              font-weight: 900;
+              color: #333333;
+              line-height: 50px;
+            }
+      
+            span {
+              font-size: 18px;
+              color: #333333;
+              line-height: 21px;
+              font-family: Arial-BoldMT, Arial;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .target_population {
+    background-color: purple;
+  }
+
+  .company_cooperation {
+    .content {
+      position: relative;
+      padding: 166px 0 92px;
+
+      h6 {
+        position: absolute;
+        top: 90px;
+        left: 76px;
+        font-size: 50px;
+        font-family: Arial-Black, Arial;
+        font-weight: 900;
+        color: #08237C;
+        line-height: 60px;
+      }
+    }
+  }
+
+  .map {
+    padding: 90px 0;
+    background-image: url('/image/home/map_bg.png');
+    .content {
+      h6 {
+        padding-bottom: 56px;
+        font-size: 50px;
+        font-weight: 900;
+        color: #08237C;
+        line-height: 60px;
+        text-align: center;
+      }
+    }
+  }
+
+  footer {
+    background: url('/image/home/footer_bg.png') 100% 100%, url('/image/home/map_bg.png');
+    background-repeat: no-repeat;
+
+    .content {
+      padding: 92px 0 56px;
+    }
+  }
+}
+  
+.swiper {
+  .item {}
+}
+  
