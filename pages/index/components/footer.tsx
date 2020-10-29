@@ -3,8 +3,8 @@ import styles from './footer.module.scss'
 
 export default function Footer() {
   return <div className={styles.footer}>
-    <Nav className={styles.custom_classname} />
-    <ul>
+    <Nav />
+    <ul className={styles.statement}>
       <li>Terms & Conditions</li>
       <li>Privacy Policy</li>
       <li>Cookie Policy</li>

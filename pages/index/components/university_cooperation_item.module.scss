@@ -1,0 +1,29 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1200px;
+  flex-shrink: 0;
+  
+  .img {
+    margin-bottom: 58px;
+    width: 550px;
+  }
+
+  .text {
+    p {
+      margin: 20px 0 40px;
+      font-size: 31px;
+      font-weight: 900;
+      color: #333333;
+      line-height: 50px;
+    }
+
+    span {
+      font-size: 18px;
+      color: #333333;
+      line-height: 21px;
+      font-family: Arial-BoldMT, Arial;
+    }
+  }
+}

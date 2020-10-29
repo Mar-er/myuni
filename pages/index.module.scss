@@ -34,35 +34,54 @@
         line-height: 60px;
         text-align: center;
       }
-  
+
       .swiper_box {
         height: 650px;    
         margin-bottom: 90px;
 
-        .item {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          
-          .img {
-            margin-bottom: 58px;
-            width: 550px;
-          }
-    
-          .text {
-            p {
-              margin: 20px 0 40px;
-              font-size: 31px;
-              font-weight: 900;
-              color: #333333;
-              line-height: 50px;
+        .swiper_container {
+          &>div:nth-child(1),
+          &>div:nth-child(2) {
+            margin-top: 0;
+            width: 55px;
+            height: 55px;
+            background-image: url('/image/home/default_switch_btn.png');
+
+            &::after {
+              content: '';
             }
-      
+
+            &:hover {
+              background-image: url('/image/home/active_switch_btn.png');
+            }
+          }
+
+          &>div:nth-child(1) {
+            top: 0;
+            left: 1080px;
+            transform: rotate(180deg);
+          }
+
+          &>div:nth-child(2) {
+            top: 10px;
+            right: 0;
+          }
+
+          &>div:nth-child(3) {
+            bottom: 0;
+
             span {
-              font-size: 18px;
-              color: #333333;
-              line-height: 21px;
-              font-family: Arial-BoldMT, Arial;
+              width: 10px;
+              height: 10px;
+              border-radius: 0;
+              // background: #08237C;
+              border-radius: 1px;
+              // opacity: 0.39;
+
+              .swiper-pagination-bullet-active {
+                width: 34px;
+                opacity: 0;
+              }
             }
           }
         }
@@ -71,7 +90,26 @@
   }
 
   .target_population {
-    background-color: purple;
+    min-width: 1200px;
+    height: 932px;
+    background: url('/image/home/target_population/bg.png') center;
+
+    h6 {
+      margin: 0 auto;
+      padding: 90px 0 48px;
+      width: 1200px;
+      display: flex;
+      justify-content: flex-end;
+      font-size: 50px;
+      font-family: Arial-Black, Arial;
+      font-weight: 900;
+      color: #08237C;
+      line-height: 60px;
+    }
+
+    .swiper_box {
+      padding-top: 169px;
+    }
   }
 
   .company_cooperation {
@@ -108,7 +146,7 @@
   }
 
   footer {
-    background: url('/image/home/footer_bg.png') 100% 100%, url('/image/home/map_bg.png');
+    background: url('/image/home/footer_bg.png') center, url('/image/home/map_bg.png');
     background-repeat: no-repeat;
 
     .content {

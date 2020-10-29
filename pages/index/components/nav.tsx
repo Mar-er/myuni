@@ -2,12 +2,11 @@ import cn from 'classnames'
 import styles from './nav.module.scss'
 
 interface Props {
-  nav_style?: string,
   className?: string,
 }
 
 Nav.defaultProps = {
-  nav_style: ''
+  className: ''
 }
 
 export default function Nav({ className }: Props) {
