@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import cn from 'classnames'
+import { useState, useEffect, useCallback } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper'
+import SwiperCore, { Navigation, Pagination, EffectFade } from 'swiper'
 import CompanyCooperation from './index/components/company_cooperation'
 import UniversityCooperationItem from './index/components/university_cooperation_item'
 import TargetPopulationItem from './index/components/target_population_item'
@@ -9,7 +10,7 @@ import Nav from './index/components/nav'
 import Footer from './index/components/footer'
 import styles from './index.module.scss'
 
-SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
+SwiperCore.use([Navigation, Pagination, EffectFade]);
 
 const university_cooperation = [{
   img: '/image/home/university_cooperation/1.png',
@@ -51,7 +52,36 @@ const target_population = [{
   hover_signature: '— Cindy L., Entrepreneur, China'
 }]
 
+function useClientRect(right) {
+  const [rect, setRect] = useState(null);
+  const ref = useCallback(node => {
+    if (node !== null) {
+      console.log(588888, node)
+      setRect(node.getBoundingClientRect());
+    }
+  }, [right]);
+  return [rect, ref]
+}
+
 export default function Home() {
+  const [right, setRight] = useState(0)
+  const [rect, ref] = useClientRect(right);
+
+  console.log(68, rect)
+  useEffect(() => {
+    function handleWindowResize(e) {
+      const innerWidth = e.target.innerWidth
+      // console.log(744444, rect)
+      // if (innerWidth >= 1200 && right !== rect.left) {
+      //   setRight(rect.left)
+      // }
+      console.log(28888, right, rect, ref)
+    }
+
+    window.addEventListener('resize', handleWindowResize);
+    return () => window.removeEventListener('resize', handleWindowResize);
+  }, []);
+
   return (
     <>
       <Head>
@@ -78,10 +108,9 @@ export default function Home() {
                 loop={true}
                 onSlideChange={() => console.log('slide change')}
                 onSwiper={(swiper) => console.log(swiper)}
-                className={styles.swiper_container}
               >
                 {
-                  university_cooperation.map((item, index) => <SwiperSlide className={styles.swiper_slide_1} key={index}><UniversityCooperationItem data={item} /></SwiperSlide>)
+                  university_cooperation.map((item, index) => <SwiperSlide key={index}><UniversityCooperationItem data={item} /></SwiperSlide>)
                 }
               </Swiper>
             </div>
@@ -89,19 +118,19 @@ export default function Home() {
         </div>
 
         <div className={styles.target_population}>
-          <h6>For graduates and<br />young professionals...</h6>
+          <h6 ref={ref}>For graduates and<br />young professionals...</h6>
           <div className={styles.swiper_box}>
             <Swiper
               slidesPerView={4}
               spaceBetween={60}
               navigation
-              loop={true}
+              // loop={true}
               centeredSlides={true}
               onSlideChange={() => console.log('slide change')}
               onSwiper={(swiper) => console.log(swiper)}
             >
               {
-                target_population.map((item, index) => <SwiperSlide className={styles.swiper_slide_1} key={index}><TargetPopulationItem data={item} /></SwiperSlide>)
+                target_population.map((item, index) => <SwiperSlide key={index}><TargetPopulationItem style={{'padding-top': '169px'}} data={item} /></SwiperSlide>)
               }
             </Swiper>
           </div>
