@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import cn from 'classnames'
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useRef, RefObject } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Navigation, Pagination, EffectFade } from 'swiper'
 import CompanyCooperation from './index/components/company_cooperation'
@@ -14,16 +14,16 @@ SwiperCore.use([Navigation, Pagination, EffectFade]);
 
 const university_cooperation = [{
   img: '/image/home/university_cooperation/1.png',
-  signature: "We are keen to enter China, and offer our world-class education to potential Chinese students. But we don't really know the local policies and student management. Thanks to myUni, they are a trusted partner.",
-  detail: '— Adam S., ABC University'
+  detail: "We are keen to enter China, and offer our world-class education to potential Chinese students. But we don't really know the local policies and student management. Thanks to myUni, they are a trusted partner.",
+  signature: '— Adam S., ABC University'
 },{
   img: '/image/home/university_cooperation/2.png',
-  signature: 'With technological development, it seems we can reach the global information without barriers, but China is a special place and we need to learn the local know-hows to better serve the students. myUni is our long-term partner in this area, as they have local expertise and global vision.',
-  detail: '— Stephen A., CDE University'
+  detail: 'With technological development, it seems we can reach the global information without barriers, but China is a special place and we need to learn the local know-hows to better serve the students. myUni is our long-term partner in this area, as they have local expertise and global vision.',
+  signature: '— Stephen A., CDE University'
 },{
   img: '/image/home/university_cooperation/3.png',
-  signature: 'As a reputable university, we need support in marketing, enrollment management, and student retention to offer online courses to international students. And myUni is doing just that! ',
-  detail: '— Vincent P., XYZ University'
+  detail: 'As a reputable university, we need support in marketing, enrollment management, and student retention to offer online courses to international students. And myUni is doing just that! ',
+  signature: '— Vincent P., XYZ University'
 }]
 
 const target_population = [{
@@ -52,32 +52,22 @@ const target_population = [{
   hover_signature: '— Cindy L., Entrepreneur, China'
 }]
 
-function useClientRect(right) {
-  const [rect, setRect] = useState(null);
-  const ref = useCallback(node => {
-    if (node !== null) {
-      console.log(588888, node)
-      setRect(node.getBoundingClientRect());
-    }
-  }, [right]);
-  return [rect, ref]
-}
-
 export default function Home() {
-  const [right, setRight] = useState(0)
-  const [rect, ref] = useClientRect(right);
+  function setRight() {
+    const bodyWidth = document.body.clientWidth;
+    const btnRight = bodyWidth > 1200 ? (bodyWidth - 1200) / 2 : 0;
+    (document.querySelectorAll('.swiper-button-next')[1] as HTMLImageElement).style.cssText += `right: ${btnRight}px`;
+    (document.querySelectorAll('.swiper-button-prev')[1] as HTMLImageElement).style.cssText += `left: ${1200 + btnRight - 10 - 55 * 2}px;`;
+  }
 
-  console.log(68, rect)
+  useEffect(() => {
+    setRight()
+  }, [])
+
   useEffect(() => {
     function handleWindowResize(e) {
-      const innerWidth = e.target.innerWidth
-      // console.log(744444, rect)
-      // if (innerWidth >= 1200 && right !== rect.left) {
-      //   setRight(rect.left)
-      // }
-      console.log(28888, right, rect, ref)
+      setRight()
     }
-
     window.addEventListener('resize', handleWindowResize);
     return () => window.removeEventListener('resize', handleWindowResize);
   }, []);
@@ -93,9 +83,20 @@ export default function Home() {
           <Nav />
           </div>
         </header>
-
         <div className={styles.banner}>
-          <img src="/image/home/banner/1.png" alt=""/>
+          <Swiper
+            pagination={{
+              clickable: true
+            }}
+            loop={true}
+            autoplay={true}
+            onSlideChange={() => console.log('slide change')}
+            onSwiper={(swiper) => console.log(swiper)}
+          >
+            {
+              [1,2].map((item, index) => <SwiperSlide key={index}><img src={`/image/home/banner/${item}.png`} alt=""/></SwiperSlide>)
+            }
+          </Swiper>
         </div>
 
         <div className={styles.university_cooperation}>
@@ -106,6 +107,8 @@ export default function Home() {
                 navigation
                 pagination
                 loop={true}
+                // init={true}
+                // initialSlide={1}
                 onSlideChange={() => console.log('slide change')}
                 onSwiper={(swiper) => console.log(swiper)}
               >
@@ -118,7 +121,7 @@ export default function Home() {
         </div>
 
         <div className={styles.target_population}>
-          <h6 ref={ref}>For graduates and<br />young professionals...</h6>
+          <h6>For graduates and<br />young professionals...</h6>
           <div className={styles.swiper_box}>
             <Swiper
               slidesPerView={4}
@@ -130,7 +133,7 @@ export default function Home() {
               onSwiper={(swiper) => console.log(swiper)}
             >
               {
-                target_population.map((item, index) => <SwiperSlide key={index}><TargetPopulationItem style={{'padding-top': '169px'}} data={item} /></SwiperSlide>)
+                target_population.map((item, index) => <SwiperSlide key={index}><TargetPopulationItem style={{paddingTop: '169px'}} data={item} /></SwiperSlide>)
               }
             </Swiper>
           </div>
@@ -146,7 +149,7 @@ export default function Home() {
         <div className={styles.map}>
           <div className={cn(styles.w1200, styles.content)}>
             <h6>We have 8 supporting offices <br />in both UK and China</h6>
-            <img src="/image/home/map.png" alt=""/>
+            <img src="/image/home/map.png" alt="" style={{width: '100%'}}/>
           </div>
         </div>
 
