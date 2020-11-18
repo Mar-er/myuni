@@ -3,7 +3,7 @@ import styles from './footer.module.scss'
 
 export default function Footer() {
   return <div className={styles.footer}>
-    <Nav />
+    <Nav className="nav" />
     <ul className={styles.statement}>
       <li>Terms & Conditions</li>
       <li>Privacy Policy</li>

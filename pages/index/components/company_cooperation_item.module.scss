@@ -1,12 +1,15 @@
 .company_cooperation_item {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  margin-bottom: 48px;
+  opacity: 0;
 
   .text {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-left: 76px;
+    width: 553px;
 
     img {
       width: 43px;
@@ -14,7 +17,7 @@
 
     p {
       margin: 16px 0 40px;
-      font-size: 31px;
+      font-size: 32px;
       font-weight: 900;
       color: #333333;
       line-height: 50px;
@@ -26,14 +29,11 @@
       line-height: 21px;
     }
   }
-
-  .photo {
-    width: 50%;
-  }
 }
 
 .row_reverse {
   flex-direction: row-reverse;
+  // justify-content: flex-end;
 
   .text {
     margin-left: 45px;

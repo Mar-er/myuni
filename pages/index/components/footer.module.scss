@@ -1,5 +1,15 @@
 .footer {
 
+  :global {
+    .nav {
+      h1 {
+        img {
+          width: 147px;
+        }
+      }
+    }
+  }
+
   .custom_classname {
     color: yellow;
   }

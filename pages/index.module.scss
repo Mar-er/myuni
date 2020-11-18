@@ -2,6 +2,12 @@
   margin: 0 auto;
   width: 1200px;
 }
+
+.w1334 {
+  margin: 0 auto;
+  width: 1334px;
+}
+
 .main {
   position: relative;
   font-family: Arial-Black;
@@ -12,12 +18,22 @@
     top: 0;
     z-index: 999;
     width: 100%;
+
+    :global {
+      .nav {
+        h1 {
+          img {
+            width: 120px;
+          }
+        }
+      }
+    }
   }
   
   .banner {
     :global {
       .swiper-pagination {
-        bottom: 0;
+        bottom: 40px;
 
         span {
           width: 10px;
@@ -53,7 +69,6 @@
       }
 
       .swiper_box {
-        height: 650px;    
         margin-bottom: 90px;
 
         :global {
@@ -161,23 +176,25 @@
   .company_cooperation {
     .content {
       position: relative;
-      padding: 166px 0 92px;
+      padding: 166px 0 44px;
 
       h6 {
         position: absolute;
         top: 90px;
         left: 76px;
+        margin-left: 50px;
         font-size: 50px;
         font-family: Arial-Black, Arial;
         font-weight: 900;
         color: #08237C;
         line-height: 60px;
+        // opacity: 0;
       }
     }
   }
 
   .map {
-    padding: 90px 0;
+    padding: 90px 0 516px 0;
     background-image: url('/image/home/map_bg.png');
     .content {
       h6 {
@@ -192,16 +209,17 @@
   }
 
   footer {
-    background: url('/image/home/footer_bg.png') center, url('/image/home/map_bg.png');
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 100%;
+    background: url('/image/home/footer_bg.png') center;
     background-repeat: no-repeat;
+    background-size: 100% 100%;
 
     .content {
       padding: 92px 0 56px;
     }
   }
 }
-  
-.swiper {
-  .item {}
-}
-  
