@@ -108,7 +108,7 @@ export default function Home() {
           <div className={styles.swiper_box}>
             <Swiper
               slidesPerView={4}
-              spaceBetween={60}
+              spaceBetween={50}
               navigation
               initialSlide={1}
               centeredSlides={true}
