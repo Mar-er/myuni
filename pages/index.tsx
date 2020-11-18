@@ -121,7 +121,7 @@ export default function Home() {
         </div>
 
           <div className={styles.company_cooperation} ref={refTargetPopulation}>
-            <div className={cn(styles.content, styles.w1334)}>
+            <div className={cn(styles.content, styles.w1200)}>
               <CSSTransition in={isIn} timeout={2000} classNames={{...companyCooperationStyles}}>
                   <h6>With international<br />corporations</h6>
               </CSSTransition>
