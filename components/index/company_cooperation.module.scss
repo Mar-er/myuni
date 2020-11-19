@@ -8,7 +8,7 @@
 
 //进场过程中
 .enterActive {
-  opacity: 1;
+  opacity: 1 !important;
   top: 0;
   // transition: opacity 4000ms, top 4000ms;
   // transition-timing-function: cubic-bezier(0.25,0.1,0.25,1);
@@ -22,6 +22,6 @@
 
 //进场之后
 .enterDone {
-  opacity: 1;
+  opacity: 1 !important;
   top: 0;
 }
