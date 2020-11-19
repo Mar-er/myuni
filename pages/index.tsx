@@ -4,15 +4,15 @@ import { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Navigation, Pagination, EffectFade, Autoplay } from 'swiper'
 import { CSSTransition } from 'react-transition-group'
-import CompanyCooperation from './index/components/company_cooperation'
-import UniversityCooperationItem from './index/components/university_cooperation_item'
-import TargetPopulationItem from './index/components/target_population_item'
-import Nav from './index/components/nav'
-import Footer from './index/components/footer'
+import CompanyCooperation from '../components/index/company_cooperation'
+import UniversityCooperationItem from '../components/index/university_cooperation_item'
+import TargetPopulationItem from '../components/index/target_population_item'
+import Nav from '../components/index/nav'
+import Footer from '../components/index/footer'
 import styles from './index.module.scss'
-import companyCooperationStyles from './company_cooperation.module.scss'
-import { university_cooperation, target_population } from './index/data'
-import { useTop, useIsIn } from './hook'
+import companyCooperationStyles from '../components/index/company_cooperation.module.scss'
+import { university_cooperation, target_population } from '../mock/index/data'
+import { useTop, useIsIn } from '../utils/hook'
 
 SwiperCore.use([Navigation, Pagination, EffectFade, Autoplay]);
 

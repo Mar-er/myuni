@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import cn from 'classnames'
 import { CSSTransition } from 'react-transition-group'
 import styles from './company_cooperation_item.module.scss'
-import { useTop, useIsIn } from '../../hook'
-import companyCooperationStyles from '../../company_cooperation.module.scss'
+import { useTop, useIsIn } from '../../utils/hook'
+import companyCooperationStyles from './company_cooperation.module.scss'
 
 interface Props {
   data: {
