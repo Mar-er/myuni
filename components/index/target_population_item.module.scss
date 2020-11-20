@@ -2,22 +2,64 @@
   padding-bottom: 40px;
 
   .item {
+    position: relative;
     box-shadow: 0px 4px 20px 2px rgba(8, 35, 124, 0.25);
     border-radius: 6px;
     background-color: #ffffff;
-  
-    img {
+    cursor: pointer;
+    overflow: hidden;
+
+    .modality {
+      position: absolute;
+      bottom: 0px;
+      transform: translate(0, 101%);
+      transition: transform ease 1s;
+      display: flex;
+      flex-direction: column;
+      padding: 0 24px;
       width: 100%;
+      height: 100%;
+      background: #08237C;
+      box-shadow: 0px 4px 20px 2px rgba(8, 35, 124, 0.25);
+      border-radius: 6px;
+
+      .img_wrap {
+        padding-top: 48px;
+      }
+
+      .hover_detail {
+        margin: 24px 0 32px;
+        font-size: 20px;
+        font-family: Arial-BoldMT, Arial;
+        color: #FFFFFF;
+        line-height: 28px;
+        // overflow: hidden;
+        // text-overflow: ellipsis;
+        // display: -webkit-box; //作为弹性伸缩盒子模型显示。
+        // -webkit-box-orient: vertical; //设置伸缩盒子的子元素排列方式--从上到下垂直排列
+        // -webkit-line-clamp: 6; //显示的行
+      }
+
+      .hover_signature {
+        font-size: 18px;
+        font-family: ArialMT;
+        color: #FFFFFF;
+        line-height: 18px;
+        // overflow:hidden; //超出的文本隐藏
+        // text-overflow:ellipsis; //溢出用省略号显示
+        // white-space:nowrap; //溢出不换行
+      }
     }
   
-    div {
-      padding: 0 24px;
-      height: 148px;
-      font-size: 12px;
-  
+    .default {
+      .text {
+        padding: 0 24px;
+        height: 130px;
+      }
+
       p {
         margin: 25px 0 15px;
-        font-size: 2.17em;
+        font-size: 26px;
         font-family: PingFangSC-Semibold, PingFang SC;
         font-weight: 600;
         color: #333333;
@@ -30,11 +72,21 @@
       }
     
       span {
-        font-size: 1.5em;
+        font-size: 18px;
         font-family: ArialMT;
         color: #333333;
         line-height: 21px;
       }
+
+      img {
+        width: 100%;
+      }
+    }
+  } 
+
+  .hover {
+    .modality {
+      transform: translate(0, 0);
     }
   }
 }

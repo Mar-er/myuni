@@ -34,7 +34,7 @@ export default function CompanyCooperationItem({ data, num } : Props) {
   return <CSSTransition in={isIn} timeout={2000} classNames={{...companyCooperationStyles}}>
       <div ref={ref} className={cn(styles.company_cooperation_item, {[styles.row_reverse]: !!(num % 2)})}>
       <div className={styles.text}>
-        <img src="/image/home/quotation_mark.png" alt=""/>
+        <img src="/image/home/mark.png" alt=""/>
         <p>{data.detail}</p>
         <span>{data.signature}</span>
       </div>

@@ -11,7 +11,7 @@ export default function UniversityCooperationItem({data}: Props) {
   return  <div className={styles.item}>
     <img className={styles.img} src={data.img} alt=""/>
     <div className={styles.text}>
-      <img src="/image/home/quotation_mark.png" alt=""/>
+      <img src="/image/home/mark.png" alt=""/>
       <p>{data.detail}</p>
       <span>{data.signature}</span>
     </div>
